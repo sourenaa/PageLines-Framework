@@ -336,9 +336,10 @@ function pl_page_show_columns($name) {
 add_action( 'admin_init', 'pagelines_set_versions' );
 function pagelines_set_versions() {
 	if ( current_user_can( 'edit_themes' ) ) {
-		delete_transient( 'pagelines_sections_cache' );
-		if( defined( 'PL_LESS_DEV' ) && PL_LESS_DEV )
+		if( defined( 'PL_LESS_DEV' ) && PL_LESS_DEV ) {
+			delete_transient( 'pagelines_sections_cache' );
 			PageLinesRenderCSS::flush_version( false );
+		}
 	}
 	set_theme_mod( 'pagelines_version', pl_get_theme_data( get_template_directory(), 'Version' ) );
 	set_theme_mod( 'pagelines_child_version', pl_get_theme_data( get_stylesheet_directory(), 'Version' ) );
