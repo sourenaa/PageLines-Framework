@@ -18,5 +18,7 @@
  *
  * @todo Define version
  */
-
+if (version_compare(PHP_VERSION, '5.4.0') >= 0) {
+	error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE & ~E_WARNING);
+}
 require_once(get_template_directory() . '/includes/init.php');
