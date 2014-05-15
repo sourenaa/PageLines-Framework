@@ -25,7 +25,7 @@ class PageLinesLess {
 		global $less_vars;
 
 		// The LESS Class
-		$this->lparser = new lessc();
+		$this->lparser = new plessc();
 
 		$this->base_color = pl_hashify( pl_base_color() );
 

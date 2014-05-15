@@ -4,6 +4,11 @@
 
 ********************************************************
 
+Version 2.4.5
+
+	- CORE - Namespaced LESS compiler, fixes issues with plugins that refuse to namespace LESS
+	- CORE - Suppress errors for PHP > 5.4
+
 Version 2.4.4
 
 	- CORE - Changes to admin UI, new favicon.
