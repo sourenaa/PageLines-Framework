@@ -191,6 +191,9 @@ function ajax_save_template_map() {
  */
 add_action( 'wp_ajax_pagelines_ajax_save_option', 'pagelines_ajax_save_option_callback' );
 function pagelines_ajax_save_option_callback() {
+
+	if( ! current_user_can( 'edit_theme_options' ) )
+		die( 'Cheatin huh?' );
     /** This is how you get access to the database */
 	global $wpdb;
 
