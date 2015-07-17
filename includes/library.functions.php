@@ -1107,6 +1107,9 @@ function array_search_ext($arr, $search, $exact = true, $trav_keys = null)
  */
 function pagelines_register_sidebar( $args, $priorty = null ) {
 
+	if( ! isset( $args['id'] ) && isset( $args['name'] ) ) {
+		$args['id'] = $args['name'];
+	}
 	register_sidebar( $args );
 }
 
