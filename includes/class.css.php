@@ -12,6 +12,7 @@
  */
 class PageLinesCSS {
 
+	var $css;
 
 	/**
 	*
