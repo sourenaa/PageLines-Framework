@@ -12,7 +12,7 @@ class PageLinesUpdateCheck {
 
 		$this->site_tran = get_site_transient('update_themes');
 
-		get_currentuserinfo();
+		//get_currentuserinfo();
 		$bad_users = apply_filters( 'pagelines_updates_badusernames', array( 'admin', 'root', 'test', 'testing', '' ) );
 		if ( in_array( strtolower( $this->username ),  $bad_users ) ) {
 			delete_option( 'pagelines_extend_creds' );
