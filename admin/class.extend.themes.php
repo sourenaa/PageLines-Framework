@@ -7,17 +7,19 @@ class ExtensionThemes extends PageLinesExtensions {
 	 *
 	 */
 	function extension_themes( $tab = '' ) {
+    
+    global $extension_control;
 
 		$type = 'theme';
 
-		$themes = $this->get_latest_cached( 'themes' );
+		$themes = $extension_control->get_latest_cached( 'themes' );
 
 		if ( !is_object($themes) )
 			return $themes;
 
 		$themes = self::extension_scan_themes( $themes );
 
-		$list = $this->get_master_list( $themes, $type, $tab );
+		$list = $extension_control->get_master_list( $themes, $type, $tab );
 
 		$this->updates_list( array( 'list' => $list, 'type' => 'theme' ) );
 

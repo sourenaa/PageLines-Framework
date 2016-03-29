@@ -28,10 +28,10 @@ class PageLines_RSS {
 
 			$out = array();
 
-			$this->items = $args['items'];
-			$this->feed_url = $args['feed'];
+			$items = $args['items'];
+			$feed_url = $args['feed'];
 
-		   	$rss = fetch_feed( $this->feed_url );
+	    $rss = fetch_feed( $feed_url );
 
 			if ( is_wp_error($rss) ) {
 
@@ -54,7 +54,6 @@ class PageLines_RSS {
 			return $out;
 		}
 
-		$items = $this->items;
 
 		foreach ( $rss->get_items(0, $items) as $item ) {
 

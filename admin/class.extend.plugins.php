@@ -16,16 +16,18 @@ class ExtensionPlugins extends PageLinesExtensions {
 	 * Plugins tab.
 	 */
 	function extension_plugins( $tab = '' ) {
+    
+    global $extension_control;
 
 		$type = 'plugin';
 
 		$plugins = self::load_plugins();
 
-		$list = $this->get_master_list( $plugins, $type, $tab );
+		$list = $extension_control->get_master_list( $plugins, $type, $tab );
 
-		$this->updates_list( array( 'list' => $list, 'type' => 'plugin' ) );
+		$extension_control->updates_list( array( 'list' => $list, 'type' => 'plugin' ) );
 
-		return $this->ui->extension_list( array( 'list' => $list, 'tab' => $tab, 'type' => 'plugins' ) );
+		return $extension_control->ui->extension_list( array( 'list' => $list, 'tab' => $tab, 'type' => 'plugins' ) );
 	}
 
 	// ====================
@@ -39,8 +41,10 @@ class ExtensionPlugins extends PageLinesExtensions {
 	*
 	*/
 	function load_plugins(){
+    
+    global $extension_control;
 
-		$plugins = $this->get_latest_cached( 'plugins' );
+		$plugins = $extension_control->get_latest_cached( 'plugins' );
 
 		if ( !is_object($plugins) )
 			return $plugins;

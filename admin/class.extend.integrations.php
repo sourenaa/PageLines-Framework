@@ -7,10 +7,12 @@ class ExtensionIntegrations extends PageLinesExtensions {
 	 *
 	 */
 	function extension_integrations( $tab = '' ) {
-
+    
+    global $extension_control;
+    
 		$type = 'integration';
 
-		$integrations = $this->get_latest_cached( 'integrations' );
+		$integrations = $extension_control->get_latest_cached( 'integrations' );
 
 		if ( !is_object($integrations ) )
 			return $integrations;

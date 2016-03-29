@@ -7,25 +7,27 @@ class ExtensionSections extends PageLinesExtensions {
 	 *
 	 */
  	function extension_sections( $tab = '', $mode = 'install' ) {
+    
+    global $extension_control;
 
 		if($tab == 'child' && !is_child_theme())
-			return $this->ui->extension_banner( __( 'A PageLines child theme is not currently activated', 'pagelines' ) );
+			return $extension_control->ui->extension_banner( __( 'A PageLines child theme is not currently activated', 'pagelines' ) );
 
-		if ( !$this->has_extend_plugin() )
-			return $this->ui->get_extend_plugin( $this->has_extend_plugin('status'), $tab );
+		// if ( !$this->has_extend_plugin() )
+		// 	return $this->ui->get_extend_plugin( $this->has_extend_plugin('status'), $tab );
 
 		$list = array();
 		$type = 'section';
 
 		if ( 'install' == $mode ) {
-			$sections = $this->get_latest_cached( 'sections' );
+			$sections = $extension_control->get_latest_cached( 'sections' );
 
 			if ( !is_object( $sections ) )
 				return $sections;
 
 			$sections = pagelines_store_object_sort( $sections );
 
-			$list = $this->get_master_list( $sections, $type, $tab );
+			$list = $extension_control->get_master_list( $sections, $type, $tab );
 
 		} // end install mode
 
@@ -39,7 +41,7 @@ class ExtensionSections extends PageLinesExtensions {
 
 	 		$disabled = get_option( 'pagelines_sections_disabled', array() );
 
-			$upgradable = $this->get_latest_cached( 'sections' );
+			$upgradable = $extension_control->get_latest_cached( 'sections' );
 
 	 		foreach( $available as $key => $section ) {
 
@@ -48,15 +50,15 @@ class ExtensionSections extends PageLinesExtensions {
 
 			$sections = self::merge_sections( $available );
 
-			$this->updates_list( array( 'list' => $sections, 'type' => 'section' ) );
+			$extension_control->updates_list( array( 'list' => $sections, 'type' => 'section' ) );
 
-			$list = $this->get_master_list( $sections, $type, $tab, 'installed' );
+			$list = $extension_control->get_master_list( $sections, $type, $tab, 'installed' );
 
 		} // end installed mode
 
 
 
-		return $this->ui->extension_list( array( 'list' => $list, 'tab' => $tab, 'type' => 'sections' ) );
+		return $extension_control->ui->extension_list( array( 'list' => $list, 'tab' => $tab, 'type' => 'sections' ) );
  	}
 
 
