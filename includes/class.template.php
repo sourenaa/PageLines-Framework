@@ -179,7 +179,7 @@ class PageLinesTemplate {
 	/**
 	 * Get current post type, set as GET on 'add new' pages
 	 */
-	function current_admin_post_type(){
+	public static function current_admin_post_type(){
 		global $pagenow;
 		global $post;
 
