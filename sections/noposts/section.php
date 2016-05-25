@@ -19,7 +19,7 @@ class PageLinesNoPosts extends PageLinesSection {
 	/**
 	* Section template.
 	*/
-   function section_template() { ?>
+   function section_template($clone_id) { ?>
 	<div class="notfound boomboard">
 	<?php if(current_user_can( 'edit_posts' ) && isset($_GET['boxes']) || isset($_GET['feature']) || isset($_GET['banners']) ):?>
 

@@ -23,7 +23,7 @@ class PageLinesShareBar extends PageLinesSection {
      *
      * @version 2.2 - added conditional check for no social sites being chosen.
      */
-    function section_template() {
+    function section_template($clone_id) {
 
         if( ! $this->get_shares() ) {
             echo setup_section_notify( $this, __( 'You have no shares setup, please look at PageLines Settings > Blog and Posts > Sharebar Social Sharing Buttons; or deactivate the Sharebar from the Blog Post Template.', 'pagelines' ), admin_url( 'admin.php?page=pagelines' ), __( 'Setup Sharebar', 'pagelines' ), false );

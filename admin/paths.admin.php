@@ -21,7 +21,7 @@ class PLAdminPaths {
 	* @TODO document
 	*
 	*/
-	function make_url( $string = '', $vars = '', $hash = '' ){
+	public static function make_url( $string = '', $vars = '', $hash = '' ){
 
 		return admin_url( $string.$vars.$hash );
 

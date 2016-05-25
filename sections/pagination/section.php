@@ -19,7 +19,7 @@ class PageLinesPagination extends PageLinesSection {
 	/**
 	* Section template.
 	*/
-   function section_template() {
+   function section_template($clone_id) {
 		pagelines_pagination();
 	}
 }

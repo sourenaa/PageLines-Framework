@@ -43,7 +43,7 @@ class PageLinesBrandNav extends PageLinesNav {
 	/**
 	* Section template.
 	*/
- 	function section_template() {
+ 	function section_template( $clone_id ) {
 
 			pagelines_main_logo( $this->id );
 
@@ -73,7 +73,7 @@ class PageLinesBrandNav extends PageLinesNav {
 		* @TODO document
 		*
 		*/
-		function section_head(){
+		function section_head( $clone_id ){
 
 			$arrows = (ploption('drop_down_arrows') == 'on') ? 1 : 0;
 			$shadows = (ploption('drop_down_shadow') == 'on') ? 1 : 0;

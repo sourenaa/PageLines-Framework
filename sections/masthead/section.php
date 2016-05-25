@@ -18,7 +18,7 @@ class PLMasthead extends PageLinesSection {
 
     var $tabID = 'masthead_meta';
 
-    function section_head() {
+    function section_head( $clone_id ) {
 
     	if(ploption('pagelines_masthead_html',$this->oset)) { ?>
 	    		<script>

@@ -114,14 +114,14 @@ class PageLinesLess {
 	private function add_bootstrap( ) {
 		$less = '';
 
-		$less .= $this->load_less_file( 'variables' );
-		$less .= $this->load_less_file( 'colors' );
-		$less .= $this->load_less_file( 'mixins' );
+		$less .= PageLinesLess::load_less_file( 'variables' );
+		$less .= PageLinesLess::load_less_file( 'colors' );
+		$less .= PageLinesLess::load_less_file( 'mixins' );
 
 		return $less;
 	}
 
-	function load_less_file( $file ) {
+	public static function load_less_file( $file ) {
 
 		$file 	= sprintf( '%s.less', $file );
 		$parent = sprintf( '%s/%s', PL_CORE_LESS, $file );

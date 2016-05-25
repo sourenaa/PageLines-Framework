@@ -50,7 +50,7 @@ class PageLinesFootCols extends PageLinesSection {
 	/**
 	* Section template.
 	*/
-	function section_template() {
+	function section_template($clone_id) {
 
 		$default = array();
 

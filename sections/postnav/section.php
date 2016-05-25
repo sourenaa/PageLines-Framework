@@ -21,7 +21,7 @@ class PageLinesPostNav extends PageLinesSection {
 	/**
 	* Section template.
 	*/
-   function section_template() {
+   function section_template($clone_id) {
 
 		pagelines_register_hook( 'pagelines_section_before_postnav' ); // Hook ?>
 		<div class="post-nav fix">

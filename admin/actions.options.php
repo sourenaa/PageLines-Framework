@@ -34,7 +34,7 @@ function pagelines_add_admin_menus() {
 
 	$_pagelines_templates_hook = pagelines_insert_menu( PL_MAIN_DASH, __( "Drag <span class='spamp'>&amp;</span> Drop", 'pagelines' ), 'edit_theme_options', 'pagelines_templates', 'pagelines_build_templates_interface' );
 
-	$_pagelines_ext_hook = pagelines_insert_menu( PL_MAIN_DASH, __( 'Store', 'pagelines' ), 'edit_theme_options', PL_ADMIN_STORE_SLUG, 'pagelines_build_extension_interface' );
+	// $_pagelines_ext_hook = pagelines_insert_menu( PL_MAIN_DASH, __( 'Store', 'pagelines' ), 'edit_theme_options', PL_ADMIN_STORE_SLUG, 'pagelines_build_extension_interface' );
 
 }
 
@@ -326,9 +326,7 @@ function pagelines_register_settings() {
 
 		update_option( PAGELINES_SETTINGS, pagelines_settings_defaults() );
 
-		global $extension_control;
-
-		$extension_control->flush_caches();
+		PagelinesExtensions::flush_caches();
 
 		wp_redirect( admin_url( PL_SETTINGS_URL.'&reset=true' ) );
 

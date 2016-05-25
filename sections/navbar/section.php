@@ -20,7 +20,7 @@ class PLNavBar extends PageLinesSection {
 
 	var $default_limit = 2;
 
-	function section_head() {
+	function section_head( $clone_id ) {
 		?>
 			<!--[if IE 8]>
 				<style>

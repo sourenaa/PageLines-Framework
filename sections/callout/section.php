@@ -112,7 +112,7 @@ class PageLinesCallout extends PageLinesSection {
 	/**
 	* Section template.
 	*/
- 	function section_template() {
+ 	function section_template( $clone_id ) {
 
 		$call_title = ploption( 'pagelines_callout_header', $this->tset );
 		$call_sub = ploption( 'pagelines_callout_subheader', $this->tset );

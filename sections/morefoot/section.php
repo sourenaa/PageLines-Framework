@@ -45,7 +45,7 @@ class PageLinesMorefoot extends PageLinesSection {
 	/**
 	* Section template.
 	*/
-   function section_template() {
+   function section_template($clone_id) {
 
 		$grid_args = array(
 			'data'		=> 'array_callback',

@@ -168,7 +168,7 @@ class PageLinesSection {
      *
      * @since   ...
      */
-	function section_template() {
+	function section_template($clone_id) {
 		die('function PageLinesSection::section_template() must be over-ridden in a sub-class.');
 	}
 
@@ -398,7 +398,7 @@ class PageLinesSection {
      *
      * @since   ...
      */
-	function section_head(){}
+	function section_head($clone_id){}
 
 
     /**

@@ -202,7 +202,7 @@ function PageLinesStyleFont(element, property){
 
 		var gFontKey = jQuery('#'+currentSelect +' option:selected').attr("title");
 
-		var gFontBase = 'http://fonts.googleapis.com/css?family=';
+		var gFontBase = 'https://fonts.googleapis.com/css?family=';
 
 		var stylesheetId = '#' + currentSelect + '_style';
 

@@ -20,7 +20,7 @@ class PageLinesPostLoop extends PageLinesSection {
 	/**
 	* Section template.
 	*/
-   function section_template() {
+   function section_template($clone_id) {
 		//Included in theme root for easy editing.
 		$theposts = new PageLinesPosts();
 		$theposts->load_loop();

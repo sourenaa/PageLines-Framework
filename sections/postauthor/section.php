@@ -20,13 +20,13 @@ class PageLinesPostAuthor extends PageLinesSection {
 	/**
 	* Section template.
 	*/
-   function section_template() {
-	global $post;
-	setup_postdata($post);
+  function section_template($clone_id) {
+    global $post;
+    setup_postdata($post);
 
-	ob_start();
-		the_author_meta('url');
-	$link = ob_get_clean();
+    ob_start();
+    the_author_meta('url');
+    $link = ob_get_clean();
 ?>
 
 		<div class="media author-info">

@@ -31,7 +31,7 @@
 	 * Flush all our transients ( Makes this save button a sort of reset button. )
 	 *
 	 */
-	 function flush_caches() {
+	 public static function flush_caches() {
 
 		delete_transient( EXTEND_UPDATE );
 		delete_transient( 'pagelines_extend_themes' );

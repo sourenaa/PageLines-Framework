@@ -27,7 +27,7 @@ class PageLinesTwitterBar extends PageLinesSection {
 	/**
 	* Section template.
 	*/
-	function section_template() {
+	function section_template($clone_id) {
 
 		if( !pagelines('twittername') ) :
 			printf('<div class="tbubble"><div class="tbubble-pad">%s</div></div>', __('Set your Twitter account name in your settings to use the TwitterBar Section.', 'pagelines'));

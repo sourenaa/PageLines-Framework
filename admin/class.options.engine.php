@@ -517,7 +517,7 @@ class OptEngine {
 	 */
 	function _get_menu_select($oid, $o){
 
-		echo $this->input_label($o['input_id'], $o['inputlabel']);
+		echo OptEngine::input_label($o['input_id'], $o['inputlabel']);
 
 		$menus = wp_get_nav_menus( array('orderby' => 'name') );
 		$opts = '';
@@ -547,7 +547,7 @@ class OptEngine {
 		$opts .= ob_get_clean();
 
 
-		echo $this->input_label($o['input_id'], $o['inputlabel']);
+		echo OptEngine::input_label($o['input_id'], $o['inputlabel']);
 		echo $this->input_select($o['input_id'], $o['input_name'], $opts);
 	}
 
@@ -596,7 +596,7 @@ class OptEngine {
 
 		$input = $this->input_checkbox($o['input_id'], $o['input_name'], $checked);
 
-		echo $this->input_label_inline($o['input_id'], $input, $o['inputlabel']);
+		echo OptEngine::input_label_inline($o['input_id'], $input, $o['inputlabel']);
 	}
 
 
@@ -623,7 +623,7 @@ class OptEngine {
 			// Output
 			$input = $this->input_checkbox($m['input_id'], $m['input_name'], $value);
 
-			echo $this->input_label_inline($m['input_id'], $input, $m['inputlabel']);
+			echo OptEngine::input_label_inline($m['input_id'], $input, $m['inputlabel']);
 
 		}
 
@@ -651,8 +651,8 @@ class OptEngine {
 
 
 			// Output
-			echo $this->input_label($m['input_id'], $m['inputlabel']);
-			echo $this->input_text($m['input_id'], $m['input_name'], pl_html($m['val']), $class, $attr, '', $placeholder);
+			echo OptEngine::input_label($m['input_id'], $m['inputlabel']);
+			echo OptEngine::input_text($m['input_id'], $m['input_name'], pl_html($m['val']), $class, $attr, '', $placeholder);
 
 		}
 	}
@@ -669,8 +669,8 @@ class OptEngine {
 	 */
 	function _get_text_small($oid, $o, $val){
 
-		echo $this->input_label($o['input_id'], $o['inputlabel']);
-		echo $this->input_text($o['input_id'], $o['input_name'], pl_html($o['val']), 'small-text', 'text', '', $o['placeholder']);
+		echo OptEngine::input_label($o['input_id'], $o['inputlabel']);
+		echo OptEngine::input_text($o['input_id'], $o['input_name'], pl_html($o['val']), 'small-text', 'text', '', $o['placeholder']);
 	}
 
 	/**
@@ -683,8 +683,8 @@ class OptEngine {
 	 */
 	function _get_text($oid, $o, $val){
 
-		echo $this->input_label($o['input_id'], $o['inputlabel']);
-		echo $this->input_text($o['input_id'], $o['input_name'], pl_html($o['val']), 'regular-text', 'text', '', $o['placeholder'] );
+		echo OptEngine::input_label($o['input_id'], $o['inputlabel']);
+		echo OptEngine::input_text($o['input_id'], $o['input_name'], pl_html($o['val']), 'regular-text', 'text', '', $o['placeholder'] );
 
 	}
 
@@ -706,7 +706,7 @@ class OptEngine {
 		$extra = (isset($o['height']) && $o['height'] != '0px') ? sprintf( 'style="height: %s"', $o['height'] ) : '';
 
 		// Output
-		echo $this->input_label($o['input_id'], $o['inputlabel']);
+		echo OptEngine::input_label($o['input_id'], $o['inputlabel']);
 		echo $this->input_textarea($o['input_id'], $o['input_name'], pl_html($o['val']), $class, $extra);
 	}
 
@@ -731,7 +731,7 @@ class OptEngine {
 
 		$label = ($o['inputlabel'] != '') ? $o['inputlabel'] : __('Hide This Overview', 'pagelines');
 
-		$hide_checkbox = ($o['flag'] != 'hide_option') ? $this->input_label_inline($o['input_id'], $input, $o['inputlabel']) : '';
+		$hide_checkbox = ($o['flag'] != 'hide_option') ? OptEngine::input_label_inline($o['input_id'], $input, $o['inputlabel']) : '';
 
 		printf('<div class="pl_help text_content fix">%s %s</div>', $o['exp'], $hide_checkbox);
 
@@ -759,7 +759,7 @@ class OptEngine {
 
 			$input = $this->input_checkbox($o['input_id'], $o['input_name'], $checked);
 
-			$hide_checkbox = $this->input_label_inline($o['input_id'], $input, $o['inputlabel']);
+			$hide_checkbox = OptEngine::input_label_inline($o['input_id'], $input, $o['inputlabel']);
 
 			printf('<div class="just_checkbox_option fix">%s %s</div>', $o['exp'], $hide_checkbox);
 
@@ -822,7 +822,7 @@ class OptEngine {
 	 */
 	function _get_image_upload_option( $oid, $o ){
 
-		$up_url = $this->input_text($o['input_id'], $o['input_name'], esc_url($o['val']), 'regular-text uploaded_url', 'text', '', $o['placeholder']);
+		$up_url = OptEngine::input_text($o['input_id'], $o['input_name'], esc_url($o['val']), 'regular-text uploaded_url', 'text', '', $o['placeholder']);
 
 		$button_id = (isset($o['special'])) ? $oid.'OID'.$o['special'] : $oid;
 
@@ -830,9 +830,9 @@ class OptEngine {
 
 		$reset_button = sprintf('<span title="%1$s" id="%2$s" class="image_reset_button button reset_%1$s">Remove</span>', $button_id, $this->settings_field);
 
-		$ajax_url = $this->input_hidden('', 'wp_ajax_action_url', admin_url("admin-ajax.php"), 'ajax_action_url');
+		$ajax_url = OptEngine::input_hidden('', 'wp_ajax_action_url', admin_url("admin-ajax.php"), 'ajax_action_url');
 
-		$preview_size = $this->input_hidden('', 'img_size_'.$oid, $o['imagepreview'], 'image_preview_size');
+		$preview_size = OptEngine::input_hidden('', 'img_size_'.$oid, $o['imagepreview'], 'image_preview_size');
 
 		ob_start();
 			$image_library_url = get_upload_iframe_src( 'image', null, 'library' );
@@ -848,7 +848,7 @@ class OptEngine {
 		$media_lib = ob_get_clean();
 
 		// Output
-		$label = $this->input_label($oid, $o['inputlabel']);
+		$label = OptEngine::input_label($oid, $o['inputlabel']);
 		printf('<p>%s %s<br/> %s %s %s %s %s</p>',$label, $up_url, $up_button, $media_lib, $reset_button, $ajax_url, $preview_size);
 
 		$special_image_class = '';
@@ -901,7 +901,7 @@ class OptEngine {
 
 
 		// Output
-		echo $this->input_label($o['input_id'], $o['inputlabel']);
+		echo OptEngine::input_label($o['input_id'], $o['inputlabel']);
 		echo $this->input_select($o['input_id'], $o['input_name'], $opts);
 
 	}
@@ -923,7 +923,7 @@ class OptEngine {
 			$checked = checked($sid, $o['val'], false);
 
 			$input = $this->input_radio($s['input_id'], $o['input_name'], $sid, $checked);
-			echo $this->input_label_inline($s['input_id'], $input, $s['name']);
+			echo OptEngine::input_label_inline($s['input_id'], $input, $s['name']);
 
 		}
 	}
@@ -942,7 +942,7 @@ class OptEngine {
 	 */
 	function _get_select_option( $oid, $o ){
 
-		echo $this->input_label($o['input_id'], $o['inputlabel']);
+		echo OptEngine::input_label($o['input_id'], $o['inputlabel']);
 
 		$opts = '';
 
@@ -1152,7 +1152,7 @@ class OptEngine {
 
 		if(is_array($terms_array) && !empty($terms_array)){
 
-			echo $this->input_label($o['input_id'], $o['inputlabel']);
+			echo OptEngine::input_label($o['input_id'], $o['inputlabel']);
 
 			$opts = '';
 
@@ -1212,11 +1212,11 @@ class OptEngine {
 
  		$gen = do_color_math($the_id, $o, $o['val'], 'palette');
 
-		$picker = sprintf('<div id="%s" class="colorSelector"><div></div></div> %s', $the_id.'_picker', $this->input_text($the_id, $o['input_name'], $o['val'], 'colorpickerclass'));
+		$picker = sprintf('<div id="%s" class="colorSelector"><div></div></div> %s', $the_id.'_picker', OptEngine::input_text($the_id, $o['input_name'], $o['val'], 'colorpickerclass'));
 
 		$pick_contain = sprintf('<div class="pick_contain">%s</div>', $picker);
 
-		printf('<div class="the_picker picker_row_%s %s"><div class="picker_panel"><div class="the_picker_pad">%s %s</div></div></div>', $per_row, ($last) ? 'p_end' : '', $this->input_label($the_id, $o['inputlabel']), $pick_contain);
+		printf('<div class="the_picker picker_row_%s %s"><div class="picker_panel"><div class="the_picker_pad">%s %s</div></div></div>', $per_row, ($last) ? 'p_end' : '', OptEngine::input_label($the_id, $o['inputlabel']), $pick_contain);
 
 		printf('<script type="text/javascript">setColorPicker("%s", "%s");</script>', $the_id, $o['val']);
   	}
@@ -1325,8 +1325,8 @@ class OptEngine {
 	function _get_email_capture($oid, $o){ ?>
 		<div class="email_capture_container">
 			<?php
-			echo $this->input_label($o['input_id'], $o['inputlabel']);
-			echo $this->input_text('email_capture_input', '', get_option('pagelines_email_sent'), 'email_capture');
+			echo OptEngine::input_label($o['input_id'], $o['inputlabel']);
+			echo OptEngine::input_text('email_capture_input', '', get_option('pagelines_email_sent'), 'email_capture');
 
 			?>
 			<input type="button" id="" class="button-secondary" onClick="sendEmailToMothership(jQuery('#email_capture_input').val(), '#email_capture_input');" value="Send" />
@@ -1404,10 +1404,10 @@ class OptEngine {
 				echo $this->superlink(__( 'Reset Account Credentials &rarr;', 'pagelines' ), 'blue', 'updates-setup', 'submit');
 			else:
 
-				echo $this->input_label( 'lp_username', __( 'PageLines Username', 'pagelines' ));
-				echo $this->input_text( 'lp_username', 'lp_username', get_pagelines_credentials( 'user' ), 'bigtext pluser');
-				echo $this->input_label( 'lp_password', __( 'PageLines Password', 'pagelines' ));
-				echo $this->input_text( 'lp_password', 'lp_password', '', 'bigtext pluser', 'password');
+				echo OptEngine::input_label( 'lp_username', __( 'PageLines Username', 'pagelines' ));
+				echo OptEngine::input_text( 'lp_username', 'lp_username', get_pagelines_credentials( 'user' ), 'bigtext pluser');
+				echo OptEngine::input_label( 'lp_password', __( 'PageLines Password', 'pagelines' ));
+				echo OptEngine::input_text( 'lp_password', 'lp_password', '', 'bigtext pluser', 'password');
 
 				echo $this->superlink(__( 'Submit Credentials', 'pagelines' ), 'blue', 'updates-setup', 'submit');
 			endif;
@@ -1456,17 +1456,17 @@ class OptEngine {
 				<?php
 
 						$input = $this->input_checkbox('pagelines_templates', 'pagelines_templates', 'checked');
-						echo $this->input_label_inline('pagelines_templates', $input, __( 'Import Template Settings', 'pagelines' ));
+						echo OptEngine::input_label_inline('pagelines_templates', $input, __( 'Import Template Settings', 'pagelines' ));
 
 						$input = $this->input_checkbox('pagelines_settings', 'pagelines_settings', 'checked');
-						echo $this->input_label_inline('pagelines_settings', $input, __( 'Import Primary Settings', 'pagelines' ));
+						echo OptEngine::input_label_inline('pagelines_settings', $input, __( 'Import Primary Settings', 'pagelines' ));
 
 
 						$input = $this->input_checkbox('pagelines_special', 'pagelines_special', 'checked');
-						echo $this->input_label_inline('pagelines_special', $input, __( 'Import Special Meta Settings', 'pagelines' ));
+						echo OptEngine::input_label_inline('pagelines_special', $input, __( 'Import Special Meta Settings', 'pagelines' ));
 
 						$input = $this->input_checkbox('pagelines_layout', 'pagelines_layout', 'checked');
-						echo $this->input_label_inline('pagelines_layout', $input, __( 'Import Layout Configuration', 'pagelines' ));
+						echo OptEngine::input_label_inline('pagelines_layout', $input, __( 'Import Layout Configuration', 'pagelines' ));
 
 						echo '<input type="file" class="file_uploader text_input" name="file" id="settings-file" /><div class="clear"></div>';
 
@@ -1546,7 +1546,7 @@ class OptEngine {
 	* @TODO document
 	*
 	*/
-	function superlink($text, $mode = 'grey', $class = '', $type = '', $extra='', $name = ''){
+	public static function superlink($text, $mode = 'grey', $class = '', $type = '', $extra='', $name = ''){
 
 		if( false !== strpos($type, 'http') )
 			$att = 'a';
@@ -1574,7 +1574,7 @@ class OptEngine {
 	* @TODO document
 	*
 	*/
-	function input_hidden($id, $name, $value, $class = ''){
+	public static function input_hidden($id, $name, $value, $class = ''){
 		return sprintf('<input type="hidden" id="%s" name="%s" value="%s" class="%s" />', $id, $name, $value, $class);
 	}
 
@@ -1583,7 +1583,7 @@ class OptEngine {
 	* @TODO document
 	*
 	*/
-	function input_textarea($id, $name, $value, $class = 'regular-text', $extra = '', $placeholder = '' ){
+	public static function input_textarea($id, $name, $value, $class = 'regular-text', $extra = '', $placeholder = '' ){
 		return sprintf('<textarea id="%s" name="%s" class="html-textarea %s" %s/>%s</textarea>', $id, $name, $class, $extra, $value );
 	}
 
@@ -1593,7 +1593,7 @@ class OptEngine {
 	* @TODO document
 	*
 	*/
-	function input_text($id, $name, $value, $class = 'regular-text', $attr = 'text', $extra = '', $placeholder = ''){
+	public static function input_text($id, $name, $value, $class = 'regular-text', $attr = 'text', $extra = '', $placeholder = ''){
 		return sprintf('<input type="%s" id="%s" name="%s" value="%s" class="%s" placeholder="%s" %s />', $attr, $id, $name, $value, $class, $placeholder, $extra);
 	}
 
@@ -1603,7 +1603,7 @@ class OptEngine {
 	* @TODO document
 	*
 	*/
-	function input_checkbox($id, $name, $value, $class = 'admin_checkbox'){
+	public static function input_checkbox($id, $name, $value, $class = 'admin_checkbox'){
 		return sprintf('<input type="checkbox" id="%s" name="%s" class="%s" %s />', $id, $name, $class, $value);
 	}
 
@@ -1613,7 +1613,7 @@ class OptEngine {
 	* @TODO document
 	*
 	*/
-	function input_label_inline($id, $input, $text, $class = 'inln'){
+	public static function input_label_inline($id, $input, $text, $class = 'inln'){
 		return sprintf('<label for="%s" class="lbl %s">%s <span>%s</span></label>', $id, $class, $input, $text);
 	}
 
@@ -1623,7 +1623,7 @@ class OptEngine {
 	* @TODO document
 	*
 	*/
-	function input_radio($id, $name, $value, $checked, $class = ''){
+	public static function input_radio($id, $name, $value, $checked, $class = ''){
 		return sprintf('<input type="radio" id="%s" name="%s" value="%s" class="%s" %s> ', $id, $name, $value, $class, $checked);
 	}
 
@@ -1633,7 +1633,7 @@ class OptEngine {
 	* @TODO document
 	*
 	*/
-	function input_label($id, $text, $class = 'context'){
+	public static function input_label($id, $text, $class = 'context'){
 		return sprintf('<label for="%s" class="lbl %s">%s</label>', $id, $class, $text);
 	}
 
@@ -1643,7 +1643,7 @@ class OptEngine {
 	* @TODO document
 	*
 	*/
-	function input_select($id, $name, $opts, $class = '', $extra = ''){
+	public static function input_select($id, $name, $opts, $class = '', $extra = ''){
 		return sprintf('<select id="%s" name="%s" class="%s" %s><option value="">&mdash;SELECT&mdash;</option>%s</select>', $id, $name, $class, $extra, $opts);
 	}
 
@@ -1653,7 +1653,7 @@ class OptEngine {
 	* @TODO document
 	*
 	*/
-	function input_option($value, $selected, $text, $id = '', $extra = ''){
+	public static function input_option($value, $selected, $text, $id = '', $extra = ''){
 		return sprintf('<option id=\'%s\' value="%s" %s %s >%s</option>', $id, $value, $extra, $selected, $text);
 	}
 
@@ -1663,7 +1663,7 @@ class OptEngine {
 	* @TODO document
 	*
 	*/
-	function input_button($id, $text, $class = '', $extra = ''){
+	public static function input_button($id, $text, $class = '', $extra = ''){
 		return sprintf('<span id=\'%s\' class="%s button" %s >%s</span>', $id, $class, $extra, $text);
 	}
 

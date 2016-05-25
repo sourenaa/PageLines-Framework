@@ -134,7 +134,7 @@ class ExtensionPlugins extends PageLinesExtensions {
 	 */
 	function pagelines_plugins_remove( $r, $url ) {
 
-		if ( 0 === strpos( $url, 'http://api.wordpress.org/plugins/update-check/' ) ) {
+		if ( 0 === strpos( $url, 'api.wordpress.org/plugins/update-check/' ) ) {
 
 			$installed = get_option('active_plugins');
 			$plugins = unserialize( $r['body']['plugins'] );

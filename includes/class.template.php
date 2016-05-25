@@ -64,7 +64,7 @@ class PageLinesTemplate {
 			if(is_admin())
 				$this->template_type = $this->admin_page_type_breaker();
 			else
-				$this->template_type = $this->page_type_breaker();
+				$this->template_type = PageLinesTemplate::page_type_breaker();
 		}
 
 
@@ -93,7 +93,7 @@ class PageLinesTemplate {
      *
      * @return mixed|void
      */
-	public function page_type_breaker(){
+	public static function page_type_breaker(){
 		global $post;
 		global $pl_integration;
 

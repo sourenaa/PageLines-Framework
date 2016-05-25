@@ -38,7 +38,7 @@ class PageLinesSecondNav extends PageLinesSection {
 	/**
 	* Section template.
 	*/
-   	function section_template() {
+   	function section_template($clone_id) {
 
 		$second_menu = (ploption('_second_nav_menu', $this->oset)) ? ploption('_second_nav_menu', $this->oset) : null;
 

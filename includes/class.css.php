@@ -12,8 +12,6 @@
  */
 class PageLinesCSS {
 
-	var $css;
-
 	/**
 	*
 	* @TODO document
@@ -36,6 +34,7 @@ class PageLinesCSS {
 	function typography(){
 
 		$foundry = new PageLinesFoundry;
+    if( ! isset( $this->css ) ) { $this->css = ''; }
 		$this->css .= $foundry->render_css();
 	}
 
@@ -47,6 +46,7 @@ class PageLinesCSS {
 	*/
 	function layout(){
 		global $pagelines_layout;
+    if( ! isset( $this->css ) ) { $this->css = ''; }
 		$this->css .= $pagelines_layout->get_layout_inline();
 	}
 
@@ -57,7 +57,8 @@ class PageLinesCSS {
 	*
 	*/
 	function options(){
-
+    
+    if( ! isset( $this->css ) ) { $this->css = ''; }
 		$this->css .= $this->render_css();
 
 	}

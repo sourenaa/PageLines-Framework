@@ -22,7 +22,7 @@ class PageLinesBanners extends PageLinesSection {
 	var $ptID = 'banners';
 	var $taxID = 'banner-sets';
 
-	function section_head(){
+	function section_head( $clone_id ){
 
 		?>
 

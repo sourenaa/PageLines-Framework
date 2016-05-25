@@ -267,7 +267,7 @@ class PageLinesBoxes extends PageLinesSection {
 	/**
 	* Section template.
 	*/
-   function section_template( $clone_id = null ) {
+   function section_template( $clone_id ) {
 
 		// Options
 			$per_row = ( ploption( 'box_col_number', $this->oset) ) ? ploption( 'box_col_number', $this->oset) : 3;

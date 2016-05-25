@@ -20,7 +20,7 @@ class PageLinesComments extends PageLinesSection {
 	/**
 	* Section template.
 	*/
-	function section_template() {
+	function section_template( $clone_id ) {
 
 		// Important! Comments.php must be in theme root to work properly. Also 'comments_template() function must be used. Its a wordpress thing.
 

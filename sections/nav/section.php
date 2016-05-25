@@ -33,7 +33,7 @@ class PageLinesNav extends PageLinesSection {
 	/**
 	* Section template.
 	*/
-   function section_template() {
+   function section_template($clone_id) {
 
 		$container_class = ( ploption('hidesearch') ) ? 'nosearch' : '';
 
@@ -75,7 +75,7 @@ class PageLinesNav extends PageLinesSection {
 	* @TODO document
 	*
 	*/
-	function section_head(){
+	function section_head( $clone_id ){
 
 		$arrows = (ploption('drop_down_arrows') == 'on') ? 1 : 0;
 		$shadows = (ploption('drop_down_shadow') == 'on') ? 1 : 0;

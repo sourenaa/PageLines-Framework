@@ -19,7 +19,7 @@ class PageLinesPostsInfo extends PageLinesSection {
 	/**
 	* Section template.
 	*/
-   function section_template() {
+   function section_template($clone_id) {
 
 		if( is_category() || is_archive() || is_search() || is_author() ):
 			echo '<div class="current_posts_info">';

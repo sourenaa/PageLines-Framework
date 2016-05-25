@@ -15,7 +15,7 @@ class PageLines_RSS {
 		 * @package PageLines Framework
 		 * @since   2.2
 		 */
-		function get_dash_rss( $args = array() ) {
+		public static function get_dash_rss( $args = array() ) {
 
 			$defaults = array(
 
@@ -91,7 +91,7 @@ class PageLines_RSS {
 		return $out;
 	}
 
-	function com_url( $d ) {
+	public static function com_url( $d ) {
 
 		preg_match( '#<p>(http://[^<]*)</p>#', $d, $out );
 		$d = str_replace( $out[0], '', $d );

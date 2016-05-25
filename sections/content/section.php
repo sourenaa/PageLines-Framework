@@ -21,7 +21,7 @@ class PageLinesContent extends PageLinesSection {
 	/**
 	* Section template.
 	*/
-   function section_template() {
+   function section_template( $clone_id ) {
 	 	global $pagelines_layout;
 ?>
 		<div id="pagelines_content" class="<?php echo $pagelines_layout->layout_mode;?> fix">

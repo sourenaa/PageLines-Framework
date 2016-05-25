@@ -4,6 +4,13 @@
 
 ********************************************************
 
+Version 2.5.0 (final)
+
+* Fixed all non static warnings, tested up to PHP7 with WP 4.6
+* Merged any pending pull requests from GH (cliffp).
+* Removed all broken pro features like online chat, broken links etc.
+* Fixed so all users are pro, no need to login.
+
 Version 2.4.5
 
 	- CORE - Namespaced LESS compiler, fixes issues with plugins that refuse to namespace LESS
