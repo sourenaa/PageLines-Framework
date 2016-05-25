@@ -202,7 +202,7 @@ class PageLines_ShortCodes {
 		 'locale'	=> 'en',
 		 'address'	=> ''
 	 ), $atts ) );
-	 $src = "http://maps.google.com/maps?f=q&source=s_q&hl=".$locale."&q=".$address;
+	 $src = "https://maps.google.com/maps?f=q&source=s_q&hl=".$locale."&q=".$address;
 	 return '<iframe width="'.$width.'" height="'.$height.'" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="'.$src.'&amp;output=embed"></iframe>';
 	}
 
