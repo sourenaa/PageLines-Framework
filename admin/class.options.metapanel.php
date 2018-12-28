@@ -437,9 +437,10 @@ class PageLinesMetaPanel {
 		$current_post_type = ( isset( $_POST['post_type'] ) ) ? $_POST['post_type'] : false;
 
 		$post_type_save = ( in_array( $current_post_type, $this->settings['posttype'] ) ) ? true : false;
+		
+		$post = get_post(); // ADDED BY BORAY ERIS. We need for checking if content has blocks.
 
-		if((isset($_POST['update']) || isset($_POST['save']) || isset($_POST['publish'])) && $post_type_save){
-
+		if((isset($_POST['update']) || isset($_POST['save']) || isset($_POST['publish']) || has_blocks( $post->post_content ) ) && $post_type_save){ // MODIFIED BY BORAY ERIS. Modified to make compatable with Gutenberg.
 
 
 			$page_template = (isset($_POST['page_template'])) ? $_POST['page_template'] : null;
