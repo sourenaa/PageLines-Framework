@@ -4,7 +4,11 @@
 
 ********************************************************
 
-Version 2.5.0 (final)
+Version 2.5.1 
+
+* Modified to make it compatible with Gutenberg editor. This version of Pagelines saves meta settings for different sections. 
+
+Version 2.5.0 
 
 * Fixed all non static warnings, tested up to PHP7 with WP 4.6
 * Merged any pending pull requests from GH (cliffp).
