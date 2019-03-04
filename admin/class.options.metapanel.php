@@ -490,11 +490,22 @@ class PageLinesMetaPanel {
 						if(isset($o['selectvalues']) && pagelines_is_multi_option($oid, $o) ){
 
 							foreach($o['selectvalues'] as $sid =>$s ){
+								/* DISABLED BY BORAY ERIS. Original developer forgot to add "Turn off" feature for multi option checkboxes
 								$option_value =  isset($_POST[$sid]) ? $_POST[$sid] : null;
 
 								if(!empty($option_value) || get_post_meta($postID, $sid))
-									update_post_meta($postID, $sid, $option_value );
-							}
+									update_post_meta($postID, $sid, $option_value );*/
+
+								/* BEGINNING Fix for "Turn off" feature for multi option checkboxes */
+                                if($s['type'] == 'check' && (bool) pldefault($sid)) {
+                                    $sid = $sid . "_reverse";
+                                }
+                                $option_value =  isset($_POST[$sid]) ? $_POST[$sid] : null;
+                                if(!empty($option_value) || get_post_meta($postID, $sid)){
+                                    update_post_meta($postID, $sid, $option_value );
+                                }
+                                /* END Fix for "Turn off" feature for multi option checkboxes */
+                            }
 
 						} else {
 
