@@ -3,6 +3,10 @@
   PageLines Framework Release Notes:
 
 ********************************************************
+Version 2.5.3 
+
+* create_function replaced with anonymous function to make compatible with PHP 7.0 and above. 
+
 Version 2.5.2 
 
 * Fixed the turn-off feature for multi-option checkboxes in the post edit meta box. 
