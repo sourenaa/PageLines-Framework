@@ -149,7 +149,7 @@ class PageLinesTemplate {
 	/**
 	 * Returns template type based on elements in WP admin
 	 */
-	public function admin_page_type_breaker(){
+	public static function admin_page_type_breaker(){
 		global $post;
 
 

@@ -156,11 +156,14 @@ function ajax_save_template_map() {
     /** Full Template Map */
     $templatemap = get_option( PAGELINES_TEMPLATE_MAP );
 
-    /** Order of the sections */
-    $section_order =  $_GET['orderdata'];
 
-    /** Get array / variable format */
-    parse_str( $section_order );
+    /** Order of the sections */
+    $section_order =  $_GET['orderdata'] ?? ''; // EDITED BY BORAY
+
+    /** Get array / variable format (PHP 8+ compatible) */
+    $output = []; // ADDED BY BORAY
+    parse_str( $section_order, $output ); // EDITED BY BORAY
+    $section = $output['section'] ?? []; // ADDED BY BORAY
 
     /** Selected Template */
     $selected_template = esc_attr( $_GET['template'] );
